@@ -17,6 +17,15 @@ public class WebSocketManager : MonoBehaviour
         ws.Connect();
     }
 
+    public void SendMessageToServer()
+    {
+        if (ws != null && ws.IsAlive)
+        {
+            ws.Send("Button clicked!");
+            Debug.Log("Message sent to server: Button clicked!");
+        }
+    }
+
     void OnDestroy()
     {
         ws.Close();
